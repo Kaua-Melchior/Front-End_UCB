@@ -1,0 +1,22 @@
+:root {
+    /* Variáveis de cor */
+    --primary-color-escuro: #043873;
+    --primary-color-claro: #4F9CF9;
+    --secondary-color-bege: #FFE492;
+    --secondary-color-azul-claro: #A7CEFC;
+    --secondary-color-cinza-escuro: #212529;
+    --secondary-color-branco: #FFFFFF;
+}
+
+body {
+    /* Configurações de fonte */
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    /* Configurações de cor */
+    background-color: var(--primary-color-escuro);
+    color: var(--secondary-color-branco);
+
+}

@@ -1,0 +1,19 @@
+body {
+    background-color: #313131;
+}
+
+.title {
+    text-align: center;
+}
+
+#primeiro {
+    color: red;
+}
+
+#segundo {
+    color: rgb(0, 255, 0);
+}
+
+#terceiro {
+    color: blue;
+}
