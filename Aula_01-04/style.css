@@ -107,3 +107,42 @@ header nav ul li a {
     justify-content: center;
     align-items: center;
 }
+
+.section-hero {
+    background-image: url("./assets/Images/Element.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 829px;
+    padding-inline: 220px;
+}
+
+.section-hero .hero-left {
+    display: flex;
+    flex-direction: column;
+    width: 656px;
+
+}
+
+.section-hero .hero-left h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 72px;
+    gap: 24px;
+}
+
+.section-hero .hero-left p2 {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+    padding-bottom: 60px;
+    font-style: normal;
+    letter-spacing: 0;
+}
+
+.section-hero .hero-right img {
+    width: 824px;
+    height: 549px;
+}
