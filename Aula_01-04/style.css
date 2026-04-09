@@ -145,4 +145,5 @@ header nav ul li a {
 .section-hero .hero-right img {
     width: 824px;
     height: 549px;
+    border-radius: 50px;
 }
