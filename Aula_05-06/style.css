@@ -1,0 +1,225 @@
+:root {
+    /* Variáveis de cor */
+    --primary-color-escuro: #043873;
+    --primary-color-claro: #4F9CF9;
+    --secondary-color-bege: #FFE492;
+    --secondary-color-azul-claro: #A7CEFC;
+    --secondary-color-cinza-escuro: #212529;
+    --secondary-color-branco: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    /* Configurações de fonte */
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    /* Configurações de cor */
+    background-color: var(--primary-color-escuro);
+    color: var(--secondary-color-branco);
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 92px;
+    padding-inline: 220px;
+}
+
+header span {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+header nav ul {
+    display: flex;
+    gap: 32px;
+}
+
+header nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    /* Configurações de fonte */
+    text-decoration: none;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    color: var(--secondary-color-branco);
+
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    gap: 24px;
+}
+
+#login {
+    text-decoration: none;
+    background-color: var(--secondary-color-bege);
+    color: var(--primary-color-escuro);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    width: 126px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#try-whitepace-free {
+    text-decoration: none;
+    background-color: var(--primary-color-claro);
+    color: var(--secondary-color-branco);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    width: 227px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-hero {
+    background-image: url("./assets/Images/Element.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 829px;
+    padding-inline: 220px;
+}
+
+.section-hero .hero-left {
+    display: flex;
+    flex-direction: column;
+    width: 656px;
+
+}
+
+.section-hero .hero-left h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 72px;
+    gap: 24px;
+}
+
+.section-hero .hero-left p2 {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+    padding-bottom: 60px;
+    font-style: normal;
+    letter-spacing: 0;
+}
+
+.section-hero .hero-right img {
+    width: 824px;
+    height: 549px;
+    border-radius: 50px;
+}
+
+/* Responsividade para telas menores que 450px */
+@media (max-width: 450px) {
+    header {
+        padding-inline: 20px;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .section-hero {
+        flex-direction: column;
+        padding-inline: 20px;
+        height: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        background-size: cover;
+    }
+
+    .section-hero .hero-left {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .section-hero .hero-left h1 {
+        font-size: 36px;
+        line-height: 46px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+
+    .section-hero .hero-left p2 {
+        font-size: 16px;
+        line-height: 26px;
+        text-align: center;
+        padding-bottom: 32px;
+    }
+
+    .section-hero .hero-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .section-hero .hero-right img {
+        width: 100%;
+        height: auto;
+        margin-top: 40px;
+        border-radius: 20px;
+    }
+
+    .buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #try-whitepace-free {
+        width: 100%;
+        max-width: 300px;
+    }
+}
