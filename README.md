@@ -35,6 +35,7 @@ O hub centraliza as seguintes práticas (cujos cards são gerados dinamicamente 
   - Flexbox & CSS Grid.
   - Animações fluidas, transições e micro-interações.
   - Efeitos modernos de UI como *Glassmorphism* e *Glow Effect*.
+- **Bootstrap 5:** Framework CSS utilizado para o desenvolvimento ágil de layouts responsivos, grids e componentes modernos em projetos específicos.
 - **JavaScript (Vanilla):**
   - Manipulação da DOM.
   - Renderização dinâmica do conteúdo do Hub central.
