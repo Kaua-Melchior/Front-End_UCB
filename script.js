@@ -3,11 +3,11 @@ const aulas = [
     { id: "Aula_04-01", date: "01 Abril", title: "Aula 02", desc: "Variáveis CSS e Estilização Inicial" },
     { id: "Aula_04-08", date: "08 Abril", title: "Aula 03", desc: "Posicionamento e Layout Moderno" },
     { id: "Aula_04-22", date: "22 Abril", title: "Aula 04", desc: "Práticas Avançadas de Componentização" },
-    { id: "Aula_05-06", date: "06 Maio",  title: "Aula 05", desc: "Design Responsivo e Adaptação Mobile" },
-    { id: "Aula_05-14", date: "14 Maio",  title: "Aula 06", desc: "Criação da Landing Page RichardsIAF" },
-    { id: "Aula_05-20", date: "20 Maio",  title: "Aula 07", desc: "Estrutura Inicial do Projeto Happy" },
-    { id: "Aula_05-27", date: "27 Maio",  title: "Aula 08", desc: "Mapas Interativos, UI e Animações" },
-    { id: "Aula_05-29 - Especial UX/Protótipo", date: "29 Maio",  title: "Aula 09", desc: "Especial UX - Protótipo de App Web" }
+    { id: "Aula_05-06", date: "06 Maio", title: "Aula 05", desc: "Design Responsivo e Adaptação Mobile" },
+    { id: "Aula_05-14", date: "14 Maio", title: "Aula 06", desc: "Criação da Landing Page RichardsIAF" },
+    { id: "Aula_05-20", date: "20 Maio", title: "Aula 07", desc: "Estrutura Inicial do Projeto Happy" },
+    { id: "Aula_05-27", date: "27 Maio", title: "Aula 08", desc: "Mapas Interativos, UI e Animações" },
+    { id: "Aula_05-29 - Especial UX/Protótipo", date: "29 Maio", title: "Aula de UX", desc: "Especial UX - Protótipo de App Web" }
 ];
 
 const grid = document.querySelector('.grid');
@@ -33,16 +33,16 @@ aulas.forEach((aula, index) => {
             <p>${aula.desc}</p>
         </div>
     `;
-    
+
     grid.appendChild(card);
 });
 
 // Efeito de brilho que segue o mouse nos cards (Glow Hover Effect)
 document.querySelector('.grid').onmousemove = e => {
-    for(const card of document.querySelectorAll('.card')) {
+    for (const card of document.querySelectorAll('.card')) {
         const rect = card.getBoundingClientRect(),
-              x = e.clientX - rect.left,
-              y = e.clientY - rect.top;
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
 
         card.style.setProperty("--mouse-x", `${x}px`);
         card.style.setProperty("--mouse-y", `${y}px`);

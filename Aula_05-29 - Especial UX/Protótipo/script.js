@@ -358,8 +358,8 @@ function renderCampaigns() {
         const popupContent = `
             <div class="custom-popup-content" onclick="openCampaign(${c.id})">
                 <div style="background-image: url('${c.img}'); height: 100px; background-size: cover; border-radius: 8px;"></div>
-                <h4 style="margin: 8px 0 2px 0;">${c.title}</h4>
-                <p style="margin-bottom: 12px; font-size: 0.8rem; color: #64748B;"><i class="fa-solid fa-location-dot"></i> ${c.country}</p>
+                <p style="margin: 8px 0 4px 0; font-size: 0.8rem; color: #64748B; text-align: center;"><i class="fa-solid fa-location-dot"></i> ${c.country}</p>
+                <h4 style="margin: 0 0 12px 0; text-align: center;">${c.title}</h4>
                 <div class="progress-wrapper" style="margin: 8px 0; padding-top: 8px;">
                     <div class="progress-container" style="margin:0; height: 6px;">
                         <div class="progress-bar animate-progress" style="--target-width: ${c.progress}%; --anim-duration: ${animDuration}s;" data-raised="R$ ${c.raised}"></div>
