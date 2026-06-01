@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mão Unida - Ajuda Humanitária</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- SCREEN 1: Home (Map) -->
+        <section id="screen-home" class="screen active">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-hands-holding-circle"></i> Mão Unida
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn"><i class="fa-solid fa-bell"></i></button>
+                    <div class="avatar-sm">
+                        <img src="./src/img/fotodeperfil.webp" alt="Perfil">
+                    </div>
+                </div>
+            </header>
+
+            <div class="search-filters-wrapper">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Buscar emergências, países...">
+                    <button class="filter-toggle-btn"
+                        onclick="document.getElementById('home-filters').classList.toggle('hidden-filters')"><i
+                            class="fa-solid fa-sliders"></i></button>
+                </div>
+                <div class="filter-chips hidden-filters" id="home-filters">
+                    <button class="chip active" data-filter="Todos">Todos</button>
+                    <button class="chip" data-filter="Urgente">Urgente</button>
+                    <button class="chip" data-filter="Inundações">Inundações</button>
+                    <button class="chip" data-filter="Terremotos">Terremotos</button>
+                    <button class="chip" data-filter="Seca">Seca</button>
+                    <button class="chip" data-filter="Incêndios">Incêndios</button>
+                </div>
+            </div>
+
+            <div id="map" class="map-container"></div>
+
+        </section>
+
+        <!-- SCREEN 1.5: Campaigns List -->
+        <section id="screen-campaigns-list" class="screen">
+            <header class="app-header">
+                <div class="logo">
+                    <i class="fa-solid fa-hands-holding-circle"></i> HopeNet
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn"><i class="fa-solid fa-bell"></i></button>
+                    <div class="avatar-sm">
+                        <img src="./src/img/fotodeperfil.webp" alt="Perfil">
+                    </div>
+                </div>
+            </header>
+
+            <div class="search-filters-wrapper">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Buscar emergências, países...">
+                    <button class="filter-toggle-btn"
+                        onclick="document.getElementById('campaign-filters').classList.toggle('hidden-filters')"><i
+                            class="fa-solid fa-sliders"></i></button>
+                </div>
+                <div class="filter-chips hidden-filters" id="campaign-filters">
+                    <button class="chip active" data-filter="Todos">Todos</button>
+                    <button class="chip" data-filter="Urgente">Urgente</button>
+                    <button class="chip" data-filter="Inundações">Inundações</button>
+                    <button class="chip" data-filter="Terremotos">Terremotos</button>
+                    <button class="chip" data-filter="Seca">Seca</button>
+                    <button class="chip" data-filter="Incêndios">Incêndios</button>
+                </div>
+            </div>
+
+            <div class="campaign-list-container" id="campaigns-list-view">
+                <!-- Cards renderizados via JavaScript -->
+            </div>
+        </section>
+
+        <!-- SCREEN 2: Campaign & Trust -->
+        <section id="screen-campaign-details" class="screen">
+            <header class="transparent-header">
+                <button class="icon-btn back-btn" onclick="navigateTo('screen-campaigns-list')"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+            </header>
+            <div class="campaign-hero">
+                <div class="campaign-image" id="camp-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80');">
+                </div>
+            </div>
+
+            <div class="campaign-content">
+                <div class="trust-badges">
+                    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Auditado 100%</div>
+                    <div class="badge"><i class="fa-solid fa-lock"></i> SSL Seguro</div>
+                </div>
+
+                <h1 id="camp-title">SOS Rio Grande do Sul</h1>
+
+                <div class="ngo-logos">
+                    <span>Parceiros Oficiais:</span>
+                    <i class="fa-solid fa-globe" title="ONG Internacional"></i>
+                    <i class="fa-solid fa-hands-asl-interpreting" title="Ajuda Solidária"></i>
+                    <i class="fa-solid fa-hand-holding-medical" title="Cruz Vermelha"></i>
+                </div>
+
+                <p class="description" id="camp-desc">
+                    Sua doação se transforma imediatamente em cestas básicas, água potável e itens de higiene para as
+                    famílias afetadas pelas fortes chuvas no estado. Acompanhe a entrega em tempo real.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="value">12.5k</span>
+                        <span class="label">Famílias Ajudadas</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="value">65%</span>
+                        <span class="label">Meta Alcançada</span>
+                    </div>
+                </div>
+
+                <button class="btn-primary large-btn" onclick="navigateTo('screen-checkout')">Doar Agora</button>
+            </div>
+        </section>
+
+        <!-- SCREEN 3: Quick Checkout -->
+        <section id="screen-checkout" class="screen">
+            <header class="app-header">
+                <button class="icon-btn" onclick="navigateTo('screen-campaign-details')"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <h2>Fazer Doação</h2>
+                <div style="width: 40px;"></div> <!-- Spacer for center alignment -->
+            </header>
+
+            <div class="checkout-content">
+                <div class="value-selector">
+                    <h3>Selecione um valor</h3>
+                    <div class="value-grid">
+                        <button class="val-btn">R$ 20</button>
+                        <button class="val-btn">R$ 50</button>
+                        <button class="val-btn">R$ 100</button>
+                        <button class="val-btn">R$ 200</button>
+                    </div>
+                    <div class="custom-value">
+                        <span>R$</span>
+                        <input type="text" inputmode="numeric" placeholder="Outro valor" id="custom-val-input">
+                    </div>
+                </div>
+
+                <div class="impact-preview">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <p id="impact-text"><strong>R$ 50</strong> garante água e comida para uma família por <strong>3
+                            dias</strong>.</p>
+                </div>
+
+                <div class="payment-methods">
+                    <button class="pix-btn large-btn" onclick="processDonation()" disabled id="btn-pix">
+                        <i class="fa-brands fa-pix"></i> Doação PIX com 1 Clique
+                    </button>
+                    <button class="cc-btn large-btn" disabled id="btn-cc">
+                        <i class="fa-regular fa-credit-card"></i> Cartão de Crédito / Outros
+                    </button>
+                    <p class="secure-text"><i class="fa-solid fa-lock"></i> Pagamento criptografado ponta-a-ponta</p>
+                </div>
+            </div>
+
+            <!-- Success Overlay -->
+            <div id="success-overlay" class="overlay hidden">
+                <div class="success-card">
+                    <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                    <h2>Doação Confirmada!</h2>
+                    <p>Obrigado! Sua ajuda já está a caminho para quem mais precisa.</p>
+                    <button class="btn-secondary" onclick="closeOverlayAndNavigate()">Ver Impacto</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 4: Transparency Wall -->
+        <section id="screen-transparency" class="screen">
+            <header class="app-header">
+                <h2>Mural de Transparência</h2>
+                <button class="icon-btn"><i class="fa-solid fa-filter"></i></button>
+            </header>
+
+            <div class="transparency-feed">
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <div class="avatar bg-green"><i class="fa-solid fa-truck"></i></div>
+                        <div class="info">
+                            <strong>Entrega Realizada</strong>
+                            <span>Há 10 minutos • Canoas, RS</span>
+                        </div>
+                    </div>
+                    <img src="./src/img/cestasbasica.webp" alt="Entrega de donativos">
+                    <p>500 cestas básicas e kits de higiene entregues no centro de abrigo municipal.</p>
+                    <div class="feed-actions">
+                        <button class="receipt-btn"><i class="fa-solid fa-file-invoice"></i> Ver Recibo</button>
+                        <button class="action-btn"><i class="fa-regular fa-heart"></i> 1.2k</button>
+                    </div>
+                </div>
+
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <div class="avatar bg-blue"><i class="fa-solid fa-droplet"></i></div>
+                        <div class="info">
+                            <strong>Compra de Água</strong>
+                            <span>Há 2 horas • Central Logística</span>
+                        </div>
+                    </div>
+                    <p>Aquisição de 10.000 litros de água potável provenientes das doações via PIX desta manhã.</p>
+                    <div class="feed-actions">
+                        <button class="receipt-btn"><i class="fa-solid fa-file-invoice"></i> Ver Nota Fiscal
+                            (PDF)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="navigateTo('screen-home')">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span>Mapa</span>
+            </button>
+            <button class="nav-item" onclick="navigateTo('screen-campaigns-list')">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Campanhas</span>
+            </button>
+            <button class="nav-item" onclick="navigateTo('screen-transparency')">
+                <i class="fa-solid fa-camera-rotate"></i>
+                <span>Transparência</span>
+            </button>
+            <button class="nav-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Perfil</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

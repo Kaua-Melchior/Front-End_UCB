@@ -23,6 +23,7 @@ O hub centraliza as seguintes práticas (cujos cards são gerados dinamicamente 
 - **Aula 06 (14 de Maio):** Criação da Landing Page *RichardsIAF*.
 - **Aula 07 (20 de Maio):** Estrutura Inicial do Projeto *Happy*.
 - **Aula 08 (27 de Maio):** Mapas Interativos, UI e Animações avançadas no projeto *Happy*.
+- **Aula 09 (29 de Maio):** Especial UX - Protótipo de App com Web Front-end.
 
 ---
 
