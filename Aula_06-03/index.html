@@ -9,33 +9,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
     <!-- Gatilho invisível no topo da tela para a animação -->
     <div class="class-header-trigger"></div>
-    
+
     <!-- Cabeçalho Animado -->
     <nav class="class-header">
         <a href="../index.html" class="nav-btn" title="Home">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                    d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
             </svg>
         </a>
 
         <div class="nav-center">
             <a href="../Aula_05-29 - Especial UX/Protótipo/index.html" class="nav-btn" title="Aula Anterior">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </a>
             <span class="class-title">Aula 09</span>
             <a href="#" class="nav-btn disabled" title="Próxima Aula">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </a>
         </div>
@@ -44,7 +49,7 @@
         <div style="width: 40px;"></div>
     </nav>
 
-    <div class="top-section">
+    <div class="top-section back">
         <header class="header container">
             <div class="logo">
                 <strong>B7</strong> <span class="dot"></span> <strong>Burger</strong>
@@ -58,7 +63,8 @@
             <div class="header-actions">
                 <a href="#" class="btn btn-outline login-btn">Fazer Login</a>
                 <button class="menu-mobile-btn">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -68,7 +74,7 @@
         </header>
 
         <main class="hero container">
-            <div class="hero-content">
+            <div class="hero-content hide-on-mobile">
                 <div class="badge">
                     <span class="emoji">😋</span> Perde tempo não!
                 </div>
@@ -151,10 +157,23 @@
             </div>
 
             <div class="burger-grid">
+                <!-- Promo Card Mobile (Exclusivo Mobile) -->
+                <div class="burger-card promo-card-mobile show-on-mobile">
+                    <div class="promo-content">
+                        <div class="promo-badge">Promoção</div>
+                        <h3>Dose Dupla.</h3>
+                        <p class="promo-desc">2 Old Burger por apenas:</p>
+                        <p class="price">R$ 35,50</p>
+                    </div>
+                    <div class="promo-image">
+                        <img src="img/card-buguer-3.png" alt="Burger Atrás" class="burger-back">
+                        <img src="img/card-buguer-3.png" alt="Dose Dupla" class="burger-front">
+                    </div>
+                </div>
+
                 <!-- Card 1 -->
                 <div class="burger-card">
                     <div class="card-image-wrapper">
-                        <div class="promo-badge">Promoção</div>
                         <img src="img/card-buguer-1.png" alt="Texas Burger">
                     </div>
                     <div class="card-content">
@@ -167,11 +186,11 @@
                 <!-- Card 2 -->
                 <div class="burger-card">
                     <div class="card-image-wrapper">
-                        <img src="img/card-buguer-2.png" alt="Texas Burger">
+                        <img src="img/card-buguer-2.png" alt="Golden Burger">
                     </div>
                     <div class="card-content">
                         <span class="category">Tradicional</span>
-                        <h3>Texas Burger</h3>
+                        <h3>Golden Burger</h3>
                         <p class="price">R$ 25,50</p>
                     </div>
                 </div>
@@ -179,11 +198,11 @@
                 <!-- Card 3 -->
                 <div class="burger-card">
                     <div class="card-image-wrapper">
-                        <img src="img/card-buguer-3.png" alt="Texas Burger">
+                        <img src="img/card-buguer-4.png" alt="Monster Burger">
                     </div>
                     <div class="card-content">
                         <span class="category">Tradicional</span>
-                        <h3>Texas Burger</h3>
+                        <h3>Monster Burger</h3>
                         <p class="price">R$ 25,50</p>
                     </div>
                 </div>
@@ -191,11 +210,11 @@
                 <!-- Card 4 -->
                 <div class="burger-card">
                     <div class="card-image-wrapper">
-                        <img src="img/card-buguer-4.png" alt="Texas Burger">
+                        <img src="img/card-buguer-3.png" alt="Old Burger">
                     </div>
                     <div class="card-content">
                         <span class="category">Tradicional</span>
-                        <h3>Texas Burger</h3>
+                        <h3>Old Burger</h3>
                         <p class="price">R$ 25,50</p>
                     </div>
                 </div>
@@ -216,7 +235,7 @@
                 <div class="burger-card">
                     <div class="card-image-wrapper">
                         <div class="promo-badge">Promoção</div>
-                        <img src="img/card-buguer-3.png" alt="Texas Burger">
+                        <img src="img/card-buguer-4.png" alt="Texas Burger">
                     </div>
                     <div class="card-content">
                         <span class="category">Tradicional</span>
