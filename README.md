@@ -20,10 +20,11 @@ O hub centraliza as seguintes práticas (cujos cards são gerados dinamicamente 
 - **Aula 03 (08 de Abril):** Posicionamento e Layout Moderno.
 - **Aula 04 (22 de Abril):** Práticas Avançadas de Componentização.
 - **Aula 05 (06 de Maio):** Design Responsivo e Adaptação Mobile.
-- **Aula 06 (14 de Maio):** Criação da Landing Page *RichardsIAF*.
+- **Aula 06 (14 de Maio):** Construção de Layout Baseado no Figma.
 - **Aula 07 (20 de Maio):** Estrutura Inicial do Projeto *Happy*.
 - **Aula 08 (27 de Maio):** Mapas Interativos, UI e Animações avançadas no projeto *Happy*.
-- **Aula 09 (29 de Maio):** Especial UX - Protótipo de App com Web Front-end.
+- **Aula de UX (29 de Maio):** Especial UX - Protótipo de App com Web Front-end.
+- **Aula 09 (03 de Junho):** Versão Mobile Perfeita (B7 Burger).
 
 ---
 

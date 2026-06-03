@@ -147,3 +147,94 @@ header nav ul li a {
     height: 549px;
     border-radius: 50px;
 }
+/* =========================================================
+   CABEÇALHO DE NAVEGAÇÃO ANIMADO (HOVER)
+   ========================================================= */
+
+/* Gatilho invisível no topo da tela */
+.class-header-trigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 99999;
+}
+
+/* Container do Header */
+.class-header {
+    position: fixed;
+    top: -80px; /* Escondido fora da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    height: 60px;
+    background: rgba(15, 15, 15, 0.75); /* Fundo escuro para contraste */
+    backdrop-filter: blur(15px); /* Efeito de blur/glassmorphism */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 100000;
+    transition: top 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: white;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação: Descer header ao passar o mouse no topo OU sobre o próprio header */
+.class-header-trigger:hover + .class-header,
+.class-header:hover {
+    top: 20px;
+}
+
+/* Botões Circulares do Header */
+.nav-btn {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.nav-btn:hover:not(.disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estado desabilitado (ex: sem aula anterior) */
+.nav-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: transparent;
+    pointer-events: none;
+}
+
+/* Área central (título e setas) */
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Título (Aula XX) */
+.class-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    color: white;
+}

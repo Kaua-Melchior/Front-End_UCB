@@ -60,6 +60,20 @@ a {
     display: inline-block;
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu-mobile-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
 .nav {
     display: flex;
     gap: 32px;
@@ -389,10 +403,14 @@ a {
     .hero {
         flex-direction: column;
         text-align: center;
+        padding-top: 20px;
     }
 
     .hero-content {
         margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hero-content h1 {
@@ -416,7 +434,8 @@ a {
     .search-header {
         flex-direction: column;
         gap: 24px;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
     }
 
     .burger-grid {
@@ -427,22 +446,60 @@ a {
 @media (max-width: 768px) {
     .nav {
         display: none;
-        /* Add a hamburger menu for real usage */
+    }
+    
+    .menu-mobile-btn {
+        display: block;
+    }
+    
+    .login-btn {
+        display: none;
+    }
+
+    .header {
+        padding: 20px 20px;
     }
 
     .hero-content h1 {
-        font-size: 36px;
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        padding: 0 10px;
     }
 
     .hero-image-wrapper {
         width: 100%;
         height: auto;
-        padding-bottom: 40px;
+        padding-bottom: 60px;
+    }
+
+    .hero-image {
+        max-width: 100%;
     }
 
     .circle-bg {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
+    }
+
+    .hero-image-wrapper::after {
+        width: 250px;
+    }
+
+    .steps {
+        bottom: -30px;
+        gap: 15px;
+    }
+
+    .step-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .step-text strong {
+        font-size: 12px;
     }
 
     .search-filters {
@@ -457,6 +514,15 @@ a {
 
     .burger-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .menu-section {
+        padding: 50px 0;
+    }
+
+    .search-header h2 {
+        font-size: 26px;
     }
 }
 /* =========================================================

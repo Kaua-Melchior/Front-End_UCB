@@ -9,9 +9,131 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts Nunito -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-</head>
+<style>
+/* =========================================================
+   CABEÇALHO DE NAVEGAÇÃO ANIMADO (HOVER)
+   ========================================================= */
+
+/* Gatilho invisível no topo da tela */
+.class-header-trigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 99999;
+}
+
+/* Container do Header */
+.class-header {
+    position: fixed;
+    top: -80px; /* Escondido fora da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    height: 60px;
+    background: rgba(15, 15, 15, 0.75); /* Fundo escuro para contraste */
+    backdrop-filter: blur(15px); /* Efeito de blur/glassmorphism */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 100000;
+    transition: top 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: white;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação: Descer header ao passar o mouse no topo OU sobre o próprio header */
+.class-header-trigger:hover + .class-header,
+.class-header:hover {
+    top: 20px;
+}
+
+/* Botões Circulares do Header */
+.nav-btn {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.nav-btn:hover:not(.disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estado desabilitado (ex: sem aula anterior) */
+.nav-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: transparent;
+    pointer-events: none;
+}
+
+/* Área central (título e setas) */
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Título (Aula XX) */
+.class-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    color: white;
+}
+</style></head>
 
 <body style="font-family: 'Nunito', sans-serif; overflow: hidden; background-color: #EBF2F5;">
+    <!-- Gatilho invisível no topo da tela para a animação -->
+    <div class="class-header-trigger"></div>
+    
+    <!-- Cabeçalho Animado -->
+    <nav class="class-header">
+        <a href="../index.html" class="nav-btn" title="Home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        <div class="nav-center">
+            <a href="../Aula_05-14/index.html" class="nav-btn" title="Aula Anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <span class="class-title">Aula 07</span>
+            <a href="../Aula_05-27/index.html" class="nav-btn" title="Próxima Aula">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Elemento vazio para manter o centro perfeitamente alinhado (compensa o botão home) -->
+        <div style="width: 40px;"></div>
+    </nav>
+
 
     <!-- Usando o componente Carousel do Bootstrap para fazer a animação lateral sem Javascript customizado ou CSS -->
     <div id="appCarousel" class="carousel slide" data-bs-touch="false" data-bs-wrap="false" data-bs-keyboard="false">
