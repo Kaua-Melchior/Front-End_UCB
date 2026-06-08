@@ -158,7 +158,8 @@ function navigateTo(screenId) {
         'screen-campaigns-list': 1,
         'screen-campaign-details': 1,
         'screen-checkout': 1,
-        'screen-transparency': 2
+        'screen-transparency': 2,
+        'screen-my-donations': 3
     };
     
     document.querySelectorAll('.nav-item').forEach((item, index) => {
@@ -279,6 +280,42 @@ document.addEventListener('DOMContentLoaded', () => {
             updateImpact(0);
         }
     });
+
+    // Lógica das Abas de Transparência
+    const transparencyTabs = document.querySelectorAll('.transparency-tabs .tab-btn');
+    const feedItems = document.querySelectorAll('.transparency-feed .feed-item');
+
+    // Inicializa aplicando o filtro da aba ativa por padrão
+    const initialActiveTab = document.querySelector('.transparency-tabs .tab-btn.active');
+    if (initialActiveTab) {
+        applyTransparencyFilter(initialActiveTab.innerText.includes('Minhas'));
+    }
+
+    transparencyTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            transparencyTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            const isMinhas = tab.innerText.includes('Minhas');
+            applyTransparencyFilter(isMinhas);
+        });
+    });
+
+    function applyTransparencyFilter(isMinhas) {
+        feedItems.forEach(item => {
+            if (isMinhas) {
+                // Se a aba for 'Minhas Campanhas', mostra apenas os que tem data-mine="true"
+                if (item.getAttribute('data-mine') === 'true') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            } else {
+                // 'Todas as Campanhas' mostra todos
+                item.style.display = 'block';
+            }
+        });
+    }
 });
 
 // Renderização Dinâmica de Cards (Carrossel e Lista) e Marcadores no Mapa

@@ -16,26 +16,31 @@
 <body>
     <!-- Gatilho invisível no topo da tela para a animação -->
     <div class="class-header-trigger"></div>
-    
+
     <!-- Cabeçalho Animado -->
     <nav class="class-header">
         <a href="../../index.html" class="nav-btn" title="Home">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                    d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
             </svg>
         </a>
 
         <div class="nav-center">
             <a href="../../Aula_05-27/index.html" class="nav-btn" title="Aula Anterior">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </a>
             <span class="class-title">Aula de UX</span>
             <a href="#" class="nav-btn disabled" title="Próxima Aula">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </a>
         </div>
@@ -85,7 +90,7 @@
         <section id="screen-campaigns-list" class="screen">
             <header class="app-header">
                 <div class="logo">
-                    <i class="fa-solid fa-hands-holding-circle"></i> HopeNet
+                    <i class="fa-solid fa-hands-holding-circle"></i> Mão Unida
                 </div>
                 <div class="header-actions">
                     <button class="icon-btn"><i class="fa-solid fa-bell"></i></button>
@@ -224,12 +229,17 @@
                 <button class="icon-btn"><i class="fa-solid fa-filter"></i></button>
             </header>
 
+            <div class="transparency-tabs">
+                <button class="tab-btn">Todas as Campanhas</button>
+                <button class="tab-btn active">Minhas Campanhas</button>
+            </div>
+
             <div class="transparency-feed">
-                <div class="feed-item">
+                <div class="feed-item" data-mine="true">
                     <div class="feed-header">
                         <div class="avatar bg-green"><i class="fa-solid fa-truck"></i></div>
                         <div class="info">
-                            <strong>Entrega Realizada</strong>
+                            <strong>Entrega Realizada - SOS RS</strong>
                             <span>Há 10 minutos • Canoas, RS</span>
                         </div>
                     </div>
@@ -241,11 +251,11 @@
                     </div>
                 </div>
 
-                <div class="feed-item">
+                <div class="feed-item" data-mine="false">
                     <div class="feed-header">
                         <div class="avatar bg-blue"><i class="fa-solid fa-droplet"></i></div>
                         <div class="info">
-                            <strong>Compra de Água</strong>
+                            <strong>Compra de Água - Mutirão</strong>
                             <span>Há 2 horas • Central Logística</span>
                         </div>
                     </div>
@@ -253,6 +263,94 @@
                     <div class="feed-actions">
                         <button class="receipt-btn"><i class="fa-solid fa-file-invoice"></i> Ver Nota Fiscal
                             (PDF)</button>
+                    </div>
+                </div>
+
+                <div class="feed-item" data-mine="true">
+                    <div class="feed-header">
+                        <div class="avatar bg-green"><i class="fa-solid fa-box-open"></i></div>
+                        <div class="info">
+                            <strong>Kits de Higiene - Deslocados</strong>
+                            <span>Ontem • Líbano</span>
+                        </div>
+                    </div>
+                    <img src="./src/img/higiene_libano.png" alt="Kits de higiene">
+                    <p>Voluntários entregaram 200 caixas com itens de higiene pessoal para as famílias no acampamento
+                        provisório.</p>
+                    <div class="feed-actions">
+                        <button class="receipt-btn"><i class="fa-solid fa-file-invoice"></i> Ver Recibo</button>
+                        <button class="action-btn"><i class="fa-regular fa-heart"></i> 840</button>
+                    </div>
+                </div>
+
+                <div class="feed-item" data-mine="false">
+                    <div class="feed-header">
+                        <div class="avatar" style="background: var(--urgent-orange); color: white;"><i
+                                class="fa-solid fa-dog"></i></div>
+                        <div class="info">
+                            <strong>Resgate de Animais - Chuvas RJ</strong>
+                            <span>Há 2 dias • Rio de Janeiro, RJ</span>
+                        </div>
+                    </div>
+                    <img src="./src/img/resgate_animais_rj.png" alt="Resgate de Animais">
+                    <p>Equipes de voluntários conseguiram resgatar dezenas de animais ilhados após as fortes enchentes.
+                    </p>
+                    <div class="feed-actions">
+                        <button class="action-btn"><i class="fa-regular fa-heart"></i> 3.5k</button>
+                    </div>
+                </div>
+
+                <div class="feed-item" data-mine="false">
+                    <div class="feed-header">
+                        <div class="avatar bg-blue"><i class="fa-solid fa-hammer"></i></div>
+                        <div class="info">
+                            <strong>Reconstrução de Telhados - Turquia</strong>
+                            <span>Há 3 dias • Turquia</span>
+                        </div>
+                    </div>
+                    <img src="./src/img/reconstrucao_turquia.png" alt="Reconstrução">
+                    <p>Iniciamos a segunda fase de reparos estruturais, garantindo abrigo seguro antes do inverno
+                        rigoroso.</p>
+                    <div class="feed-actions">
+                        <button class="receipt-btn"><i class="fa-solid fa-file-invoice"></i> Relatório Completo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 5: My Donations -->
+        <section id="screen-my-donations" class="screen">
+            <header class="app-header">
+                <h2>Minhas Doações</h2>
+            </header>
+
+            <div class="total-donations-card">
+                <span class="total-label">Impacto Total Gerado</span>
+                <span class="total-value">R$ 200,00</span>
+            </div>
+
+            <div class="donations-list">
+                <div class="donation-card">
+                    <div class="donation-logo"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                    <div class="donation-info">
+                        <strong>SOS Rio Grande do Sul</strong>
+                        <span>12/05/2026 • Cruz Vermelha</span>
+                    </div>
+                    <div class="donation-status">
+                        <span class="amount">R$ 150,00</span>
+                        <span class="status success"><i class="fa-solid fa-circle-check"></i> Entregue</span>
+                    </div>
+                </div>
+
+                <div class="donation-card">
+                    <div class="donation-logo"><i class="fa-solid fa-globe"></i></div>
+                    <div class="donation-info">
+                        <strong>Ajuda para Deslocados</strong>
+                        <span>08/04/2026 • ONG Internacional</span>
+                    </div>
+                    <div class="donation-status">
+                        <span class="amount">R$ 50,00</span>
+                        <span class="status success"><i class="fa-solid fa-circle-check"></i> Entregue</span>
                     </div>
                 </div>
             </div>
@@ -272,9 +370,9 @@
                 <i class="fa-solid fa-camera-rotate"></i>
                 <span>Transparência</span>
             </button>
-            <button class="nav-item">
-                <i class="fa-solid fa-circle-user"></i>
-                <span>Perfil</span>
+            <button class="nav-item" onclick="navigateTo('screen-my-donations')">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <span>Doações</span>
             </button>
         </nav>
     </div>
