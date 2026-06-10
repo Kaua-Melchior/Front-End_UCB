@@ -1,9 +1,9 @@
 :root {
     --primary-color: #f59a1b;
-    --text-color: #2b2b2b;
-    --text-light: #737373;
+    --text-color: #1B1B1B;
+    --text-light: #979797;
     --bg-color: #ffffff;
-    --bg-section: #f8f9fb;
+    --bg-section: #F9F9FB;
     --card-bg: #ffffff;
     --border-color: #eaeaea;
     --font-sans: 'Inter', sans-serif;
@@ -44,12 +44,16 @@ a {
 }
 
 .logo {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 800;
+    font-family: 'Calistoga', serif;
+    font-size: 30px;
+    font-weight: 400;
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+.logo strong {
+    font-weight: 400;
 }
 
 .logo .dot {
@@ -383,7 +387,7 @@ a {
 
 .category {
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-color);
     font-weight: 500;
     display: block;
     margin-bottom: 8px;
@@ -468,9 +472,20 @@ a {
     }
 
     .header {
-        padding: 20px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 8px 20px;
         border-bottom: none;
         background-color: var(--bg-section);
+        justify-content: center;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-actions {
+        display: none;
     }
 
     .top-section {
@@ -486,10 +501,10 @@ a {
     }
 
     .search-header {
-        background-color: transparent;
-        padding: 10px 0 20px 0;
-        margin: 0;
-        width: 100%;
+        background-color: var(--bg-section);
+        padding: 50px 20px 32px 20px;
+        margin: 0 -20px 32px -20px;
+        width: calc(100% + 40px);
     }
 
     .search-header h2,
@@ -497,22 +512,51 @@ a {
         display: none;
     }
 
-    .search-box {
+    .mobile-welcome {
         width: 100%;
+
+        text-align: left;
+    }
+
+    .welcome-text-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .welcome-texts h3 {
+        font-family: var(--font-inter);
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--text-color);
+        margin-bottom: 4px;
+        letter-spacing: -0.5px;
+    }
+
+    .welcome-texts p {
+        font-family: var(--font-sans);
+        font-size: 16px;
+        font-weight: 400;
+        color: #a0a0a0;
+    }
+
+    .search-box {
+
         background-color: #ffffff;
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-        height: 56px;
+        height: 60px;
+        width: 360px;
         display: flex;
         align-items: center;
-        padding: 0 10px;
+        padding: 0 12px;
     }
 
     .search-box svg {
         background-color: #f8f9fb;
-        width: 40px;
-        height: 40px;
-        padding: 10px;
+        width: 44px;
+        height: 44px;
+        padding: 12px;
         border-radius: 10px;
         flex-shrink: 0;
     }
@@ -521,9 +565,9 @@ a {
         background-color: transparent;
         border: none;
         font-family: 'Inter', sans-serif;
-        font-size: 14px;
+        font-size: 16px;
         color: var(--text-color);
-        padding-left: 12px;
+        padding-left: 16px;
         width: 100%;
         outline: none;
     }
@@ -535,24 +579,46 @@ a {
 
     .menu-section {
         padding: 0 0 50px 0;
-        background-color: #f8f9fb;
+        background-color: transparent;
         margin-top: 0;
     }
 
     .burger-card {
         border-radius: 20px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
     }
 
     .card-image-wrapper {
-        height: auto;
-        aspect-ratio: 1 / 1;
-        padding: 15px;
+        height: 50%;
         background-color: #fcf6ef;
         border-radius: 20px 20px 0 0;
+        position: relative;
+    }
+
+    .card-image-wrapper img {
+        position: absolute;
+        height: 120%;
+        max-height: none;
+        width: auto;
+        max-width: 90%;
+        bottom: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+
+    .burger-card:hover .card-image-wrapper img {
+        transform: translateX(-50%) scale(1.05);
     }
 
     .card-content {
+        flex: 1;
         padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
 
     .card-content h3 {
@@ -571,19 +637,21 @@ a {
     .card-content .price {
         font-family: var(--font-heading);
         font-size: 15px;
-        font-weight: 700;
+        font-weight: 600;
         color: var(--primary-color);
     }
 
     /* Promo Card Mobile */
     .promo-card-mobile {
         display: flex;
+        flex-direction: row;
+        aspect-ratio: auto;
         grid-column: span 2;
         background: #ffffff;
         border-radius: 12px;
         position: relative;
         align-items: center;
-        padding: 24px 20px;
+        padding: 15px 20px;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
         overflow: hidden;
     }
@@ -609,9 +677,9 @@ a {
     .promo-content .promo-badge {
         display: inline-block;
         font-family: 'Inter', sans-serif;
-        font-weight: 600;
+        font-weight: 500;
         /* Semi Bold */
-        font-size: 10px;
+        font-size: 8px;
         background-color: #f59a1b;
         color: #fff;
         padding: 5px 12px;
