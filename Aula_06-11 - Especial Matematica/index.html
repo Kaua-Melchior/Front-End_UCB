@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Binomial | Wasm</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Gatilho invisível no topo da tela para a animação -->
+    <div class="class-header-trigger"></div>
+
+    <!-- Cabeçalho Animado -->
+    <nav class="class-header">
+        <a href="../index.html" class="nav-btn" title="Home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </a>
+
+        <div class="nav-center">
+            <a href="../Aula_06-03/index.html" class="nav-btn" title="Aula Anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+            <span class="class-title">Aula de Matemática</span>
+            <a href="#" class="nav-btn disabled" title="Próxima Aula">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Elemento vazio para manter o centro perfeitamente alinhado -->
+        <div style="width: 40px;"></div>
+    </nav>
+
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    
+    <main class="glass-panel">
+        <header>
+            <div class="badge">Powered by Rust + WebAssembly</div>
+            <h1>Calculadora Binomial</h1>
+            <p>Alta performance em cálculos matemáticos com Rust, rodando no navegador.</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="fatorial">Fatorial (n!)</button>
+            <button class="tab-btn" data-tab="combinacao">Combinação C(n, p)</button>
+        </div>
+
+        <div class="tab-content active" id="tab-fatorial">
+            <div class="input-group">
+                <label for="input-n-fat">Valor de n</label>
+                <input type="number" id="input-n-fat" placeholder="Ex: 5" min="0" step="1">
+            </div>
+            <button class="action-btn" id="btn-fatorial">Calcular Fatorial</button>
+        </div>
+
+        <div class="tab-content" id="tab-combinacao">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="input-n-comb">Total (n)</label>
+                    <input type="number" id="input-n-comb" placeholder="Ex: 10" min="0" step="1">
+                </div>
+                <div class="input-group">
+                    <label for="input-p-comb">Escolhas (p)</label>
+                    <input type="number" id="input-p-comb" placeholder="Ex: 2" min="0" step="1">
+                </div>
+            </div>
+            <button class="action-btn" id="btn-combinacao">Calcular Combinação</button>
+        </div>
+
+        <div class="result-box" id="result-box">
+            <span class="result-label">Resultado</span>
+            <div class="result-value" id="result-value">Aguardando cálculo...</div>
+        </div>
+    </main>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

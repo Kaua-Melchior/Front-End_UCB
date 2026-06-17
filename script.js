@@ -7,8 +7,9 @@ const aulas = [
     { id: "Aula_05-14", date: "14 Maio", title: "Aula 06", desc: "Construção de Layout Baseado no Figma" },
     { id: "Aula_05-20", date: "20 Maio", title: "Aula 07", desc: "Estrutura Inicial do Projeto Happy" },
     { id: "Aula_05-27", date: "27 Maio", title: "Aula 08", desc: "Mapas Interativos, UI e Animações" },
-    { id: "Aula_05-29 - Especial UX/Protótipo", date: "29 Maio", title: "Aula de UX", desc: "Especial UX - Protótipo de App Web" },
-    { id: "Aula_06-03", date: "03 Junho", title: "Aula 09", desc: "Versão Mobile Perfeita (B7 Burger)" }
+    { id: "Aula_05-29 - Especial UX", date: "29 Maio", title: "Aula de UX", desc: "Especial UX - Protótipo de App Web" },
+    { id: "Aula_06-03", date: "03 Junho", title: "Aula 09", desc: "Versão Mobile Perfeita (B7 Burger)" },
+    { id: "Aula_06-11 - Especial Matematica", date: "11 Junho", title: "Aula de Matemática", desc: "Calculadora Binomial com WebAssembly e Rust" }
 ];
 
 const grid = document.querySelector('.grid');

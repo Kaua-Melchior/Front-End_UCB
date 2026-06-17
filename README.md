@@ -25,6 +25,7 @@ O hub centraliza as seguintes práticas (cujos cards são gerados dinamicamente 
 - **Aula 08 (27 de Maio):** Mapas Interativos, UI e Animações avançadas no projeto *Happy*.
 - **Aula de UX (29 de Maio):** Especial UX - Protótipo de App com Web Front-end.
 - **Aula 09 (03 de Junho):** Versão Mobile Perfeita (B7 Burger).
+- **Aula de Matemática (11 de Junho):** Especial Matemática - Calculadora Binomial com Rust + WebAssembly.
 
 ---
 
