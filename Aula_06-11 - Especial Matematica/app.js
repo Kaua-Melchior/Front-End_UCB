@@ -16,6 +16,7 @@ async function run() {
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
     const resultValue = document.getElementById('result-value');
+    const resultScale = document.getElementById('result-scale');
     
     // Tab switching logic
     tabBtns.forEach(btn => {
@@ -29,6 +30,7 @@ async function run() {
             // Reset result
             resultValue.textContent = 'Aguardando cálculo...';
             resultValue.classList.remove('error');
+            resultScale.textContent = '';
         });
     });
 
@@ -40,6 +42,51 @@ async function run() {
         } catch (e) {
             return numStr; // Fallback
         }
+    }
+
+    // Retorna a descrição por escrito das escalas numéricas (Milhar, Milhão, Bilhão...)
+    function getNumberScalesDescription(numStr) {
+        if (!/^\d+$/.test(numStr)) return "";
+        const len = numStr.length;
+        if (len <= 3) return ""; // Números simples (unidades) não precisam de descrição
+        
+        const scales = [];
+        
+        // Mapeamento baseado no número de grupos de 3 dígitos (direita para esquerda)
+        const scaleNames = {
+            2: "Milhar (Milhares)",
+            3: "Milhão (Milhões)",
+            4: "Bilhão (Bilhões)",
+            5: "Trilhão (Trilhões)",
+            6: "Quatrilhão (Quatrilhões)",
+            7: "Quintilhão (Quintilhões)",
+            8: "Sextilhão (Sextilhões)",
+            9: "Septilhão (Septilhões)",
+            10: "Octilhão (Octilhões)",
+            11: "Nonilhão (Nonilhões)",
+            12: "Decilhão (Decilhões)"
+        };
+        
+        const numGroups = Math.ceil(len / 3);
+        
+        if (numGroups > 12) {
+            return `Casas: Escala gigante (> ${len} dígitos)`;
+        }
+        
+        for (let g = numGroups; g >= 2; g--) {
+            if (scaleNames[g]) {
+                scales.push(scaleNames[g]);
+            }
+        }
+        
+        if (scales.length === 0) return "";
+        
+        if (scales.length === 1) {
+            return `Casas: ${scales[0]}`;
+        }
+        
+        const last = scales.pop();
+        return `Casas: ${scales.join(", ")} e ${last}`;
     }
 
     // Fatorial Event
@@ -66,7 +113,7 @@ async function run() {
             if (result.startsWith("Erro")) {
                 showError(result);
             } else {
-                showResult(`${nInput}! = ${formatNumberString(result)}`);
+                showResult(`${nInput}! = ${formatNumberString(result)}`, result);
             }
         } catch (e) {
             showError(`Erro interno no cálculo: ${e.message || e}`);
@@ -113,7 +160,7 @@ async function run() {
             if (result.startsWith("Erro")) {
                 showError(result);
             } else {
-                showResult(`C(${nInput}, ${pInput}) = ${formatNumberString(result)}`);
+                showResult(`C(${nInput}, ${pInput}) = ${formatNumberString(result)}`, result);
             }
         } catch (e) {
             showError(`Erro interno no cálculo: ${e.message || e}`);
@@ -121,18 +168,25 @@ async function run() {
         }
     });
 
-    function showResult(text) {
+    function showResult(text, rawResultStr) {
         resultValue.textContent = text;
         if (text.startsWith("Erro")) {
             resultValue.classList.add('error');
+            resultScale.textContent = '';
         } else {
             resultValue.classList.remove('error');
+            if (rawResultStr) {
+                resultScale.textContent = getNumberScalesDescription(rawResultStr);
+            } else {
+                resultScale.textContent = '';
+            }
         }
     }
     
     function showError(text) {
         resultValue.textContent = text;
         resultValue.classList.add('error');
+        resultScale.textContent = '';
     }
 }
 

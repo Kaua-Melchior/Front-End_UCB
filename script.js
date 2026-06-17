@@ -18,7 +18,7 @@ const grid = document.querySelector('.grid');
 aulas.forEach((aula, index) => {
     const delay = index * 0.1;
     const card = document.createElement('a');
-    card.href = `./${aula.id}/index.html`;
+    card.href = `./${encodeURI(aula.id)}/index.html`;
     card.className = 'card';
     card.style.animationDelay = `${delay}s`;
 
