@@ -32,15 +32,44 @@ async function run() {
         });
     });
 
+    // Helper function para formatar números grandes com pontos (ex: 1.000.000)
+    function formatNumberString(numStr) {
+        if (!/^\d+$/.test(numStr)) return numStr; // Retorna como está se não for puramente numérico
+        try {
+            return new Intl.NumberFormat('pt-BR').format(BigInt(numStr));
+        } catch (e) {
+            return numStr; // Fallback
+        }
+    }
+
     // Fatorial Event
     document.getElementById('btn-fatorial').addEventListener('click', () => {
         const nInput = document.getElementById('input-n-fat').value;
         
+        if (!nInput) {
+            showError("Erro: Por favor, preencha o valor de n.");
+            return;
+        }
+        
+        const n = Number(nInput);
+        if (n < 0) {
+            showError("Erro: O valor de n não pode ser um número negativo.");
+            return;
+        }
+        if (!Number.isInteger(n)) {
+            showError("Erro: O valor de n deve ser um número inteiro (sem vírgula).");
+            return;
+        }
+
         try {
             const result = calcular_fatorial(nInput);
-            showResult(result.startsWith("Erro") ? result : `${nInput}! = ${result}`);
+            if (result.startsWith("Erro")) {
+                showError(result);
+            } else {
+                showResult(`${nInput}! = ${formatNumberString(result)}`);
+            }
         } catch (e) {
-            showError("Ocorreu um erro no WebAssembly.");
+            showError(`Erro interno no cálculo: ${e.message || e}`);
             console.error(e);
         }
     });
@@ -50,16 +79,44 @@ async function run() {
         const nInput = document.getElementById('input-n-comb').value;
         const pInput = document.getElementById('input-p-comb').value;
         
-        if (!nInput || !pInput) {
-            showError("Erro: Por favor, preencha n e p.");
+        if (!nInput && !pInput) {
+            showError("Erro: Por favor, preencha o total (n) e as escolhas (p).");
+            return;
+        }
+        if (!nInput) {
+            showError("Erro: Por favor, preencha o valor total (n).");
+            return;
+        }
+        if (!pInput) {
+            showError("Erro: Por favor, preencha o número de escolhas (p).");
+            return;
+        }
+        
+        const n = Number(nInput);
+        const p = Number(pInput);
+
+        if (n < 0 || p < 0) {
+            showError("Erro: Os valores não podem ser negativos.");
+            return;
+        }
+        if (!Number.isInteger(n) || !Number.isInteger(p)) {
+            showError("Erro: Ambos os valores devem ser números inteiros (sem vírgula).");
+            return;
+        }
+        if (p > n) {
+            showError(`Erro: O número de escolhas (p=${p}) não pode ser maior que o total (n=${n}).`);
             return;
         }
         
         try {
             const result = calcular_combinacao(nInput, pInput);
-            showResult(result.startsWith("Erro") ? result : `C(${nInput}, ${pInput}) = ${result}`);
+            if (result.startsWith("Erro")) {
+                showError(result);
+            } else {
+                showResult(`C(${nInput}, ${pInput}) = ${formatNumberString(result)}`);
+            }
         } catch (e) {
-            showError("Ocorreu um erro no WebAssembly.");
+            showError(`Erro interno no cálculo: ${e.message || e}`);
             console.error(e);
         }
     });
