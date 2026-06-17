@@ -1,0 +1,15 @@
+{
+  "name": "calculadora-wasm",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "calculadora_wasm_bg.wasm",
+    "calculadora_wasm.js",
+    "calculadora_wasm.d.ts"
+  ],
+  "main": "calculadora_wasm.js",
+  "types": "calculadora_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
