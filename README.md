@@ -67,5 +67,5 @@ Como trata-se de um projeto Front-End estático, você não precisa de configura
 
 Desenvolvido por **Kauã Melchior** durante as aulas de Front-End na UCB.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kauamelchior/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kaua-melchior/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Kaua-Melchior)
